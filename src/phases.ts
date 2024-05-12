@@ -289,7 +289,8 @@ export class TitlePhase extends Phase {
       }
       this.scene.sessionSlotId = slotId;
 
-      fetchDailyRunSeed().then(seed => {
+      const seed = "SUEurQGNo5RLsU9SoZMJvg=="
+      // fetchDailyRunSeed().then(seed => {
         this.scene.gameMode = gameModes[GameModes.DAILY];
 
         this.scene.setSeed(seed);
@@ -332,9 +333,9 @@ export class TitlePhase extends Phase {
           this.scene.sessionPlayTime = 0;
           this.end();
         });
-      }).catch(err => {
-        console.error("Failed to load daily run:\n", err);
-      });
+      // }).catch(err => {
+      //   console.error("Failed to load daily run:\n", err);
+      // });
     });
   }
 
@@ -3606,7 +3607,18 @@ export class GameOverPhase extends BattlePhase {
           this.end();
         });
       });
+<<<<<<< Updated upstream
     });
+=======
+    };
+    if (this.victory) {
+      // Utils.apiFetch(`savedata/newclear?slot=${this.scene.sessionSlotId}`, true)
+      //   .then(response => response.json())
+      //   .then(newClear => doGameOver(newClear));
+        doGameOver(true);
+    } else
+      doGameOver(false);
+>>>>>>> Stashed changes
   }
 
   handleUnlocks(): void {
